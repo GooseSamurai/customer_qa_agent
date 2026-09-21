@@ -2,7 +2,7 @@
 
 ## Current milestone
 
-**M5：API、持久化与人工反馈**
+**M7：评测与验收**
 
 ## Completed
 
@@ -27,6 +27,9 @@
 - 完成 T017：实现 SQLite Repository，保存 case、finding、evidence、agent run 和 review。
 - 完成 T018：实现 FastAPI 质检接口，应用 service 负责调用工作流并持久化。
 - 完成 T019：支持 confirmed、false_positive、correction，并导出 SFT 候选 JSONL。
+- 完成 T020：将复核样本构造成 Chat SFT 数据，并切分 train/valid/test。
+- 完成 T021：实现配置化 LoRA-SFT 入口，并完成 1-step 真实训练冒烟验证和 adapter 保存。
+- 完成 T022：实现 vLLM HTTP 客户端和 QA Model 服务适配，HTTP 测试使用 Mock，不依赖常驻 GPU 服务。
 - 建立仓库级 Vibe Coding 文档体系：
   - `AGENTS.md`
   - `README.md`
@@ -42,14 +45,14 @@
 - T002 Conversation Schema 已完成并通过验证。
 - T003 QARule Schema 已完成并通过验证。
 - T004 Finding 与 Evidence Schema 已完成并通过验证。
-- T001-T019 已验证，完整测试 `69 passed`。RAG、本地 Qwen、Agent 工作流、SQLite Repository、FastAPI 接口和 SFT 候选导出均已验证。
+- T001-T022 已验证，完整测试 `76 passed`。LoRA 训练入口完成 1-step 真实冒烟训练并保存 adapter；vLLM 客户端通过 Mock HTTP 测试。
 - RAG 和本地 Qwen 推理已接入；Agent 工作流、训练、vLLM/量化部署和持久化知识索引仍未实现。
 
 当前不要声称已经完成：
 - vLLM/量化部署；
 - 生产级 RAG 平台能力（持久化索引、权限、批量评测等）；
 - 完整 Agent Workflow；
-- LoRA-SFT；
+- 正式数据规模和实验级 LoRA-SFT；
 - vLLM 部署。
 
 ## Current repository state
@@ -61,7 +64,8 @@ T008-T011 implement a real local RAG pipeline with LangChain Markdown splitting,
 T012-T015 implement the QA model contract, local Qwen inference client, Finding router, and grounded re-evaluation.
 T016 implements the LangGraph workflow for direct, order, knowledge, combined, and human-review paths.
 T017-T019 implement SQLite persistence, FastAPI analysis/review endpoints, and JSONL SFT candidate export.
-Training, vLLM/quantized serving, and persistent knowledge indexing are not implemented yet.
+T020-T021 implement SFT dataset construction and LoRA training; a 1-step real smoke run saved an adapter.
+T022 implements the vLLM HTTP client and service adapter; real vLLM deployment remains pending.
 ```
 
 ## Current constraints
@@ -93,6 +97,6 @@ Training, vLLM/quantized serving, and persistent knowledge indexing are not impl
 
 ## Next task
 
-`T020 SFT dataset builder`
+`T023 Model evaluation`
 
-等待项目负责人的下一步指令后再实现；本任务未提前进入 T020。
+等待项目负责人的下一步指令后再实现；本任务未提前进入 T023。

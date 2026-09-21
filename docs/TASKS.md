@@ -389,7 +389,7 @@
 
 ## T020 SFT dataset builder
 
-**Status:** TODO  
+**Status:** DONE  
 **Depends on:** T004, T019
 
 **Target files:**
@@ -408,7 +408,7 @@
 
 ## T021 LoRA training entrypoint
 
-**Status:** TODO  
+**Status:** DONE  
 **Depends on:** T020
 
 **Target files:**
@@ -427,7 +427,7 @@
 
 ## T022 vLLM serving client and service
 
-**Status:** TODO  
+**Status:** DONE  
 **Depends on:** T013, T021
 
 **Target files:**
