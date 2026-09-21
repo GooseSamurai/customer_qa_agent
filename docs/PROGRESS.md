@@ -50,6 +50,18 @@ Business source directories are importable packages, but contain no business log
 - 第一版外部能力只抽象为 Order Context 与 Business Knowledge 两类。
 - Evidence 中能确定性验证的内容优先 Python 校验。
 
+## Git and CI
+
+- 本地 Git 仓库已初始化，默认分支为 `main`。
+- GitHub Public 仓库：`https://github.com/GooseSamurai/customer_qa_agent`。
+- 本地远端名 `origin` 指向 GitHub 仓库，`main` 已建立 tracking。
+- 首个本地提交：`b203b2d chore: initialize project skeleton and CI`。
+- GitHub Actions CI 已配置：`.github/workflows/ci.yml`。
+- CI 使用 Python 3.10 和 3.12 分别执行全部测试。
+- 首次远端 CI 运行成功：run `35564478483`。
+- `main` 已启用保护：必须通过 Pull Request、必须通过两个 CI 检查、禁止强制推送、禁止删除。
+- CD 尚未实现，等待明确的部署目标和服务制品。
+
 ## Development environment
 
 - Python: `>=3.10`，当前验证环境为 Python `3.12.7`。
