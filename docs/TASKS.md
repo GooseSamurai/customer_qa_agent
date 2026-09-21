@@ -73,7 +73,7 @@
 
 ## T004 Finding and Evidence Schema
 
-**Status:** TODO  
+**Status:** DONE
 **Depends on:** T002, T003
 
 **Target files:**

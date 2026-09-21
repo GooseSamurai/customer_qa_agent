@@ -13,6 +13,7 @@
 - 完成 T001：建立 Python package 骨架、最小项目配置、pytest 配置、导入测试和开发环境忽略规则。
 - 完成 T002：定义标准化 Conversation 与 Message Schema，并覆盖正常和异常输入测试。
 - 完成 T003：定义 QARule 质检规则数据结构，并覆盖正常和异常输入测试。
+- 完成 T004：定义 Finding 与 Conversation/Order/Knowledge Evidence Schema，并覆盖四类 required_evidence 路由表达及异常输入。
 - 建立仓库级 Vibe Coding 文档体系：
   - `AGENTS.md`
   - `README.md`
@@ -27,11 +28,11 @@
 - T001 工程骨架已完成并通过验证：12 个业务 package 可正常导入。
 - T002 Conversation Schema 已完成并通过验证。
 - T003 QARule Schema 已完成并通过验证。
-- `python -m pytest -p no:cacheprovider` 实际执行结果为 `21 passed`：T001 13 个、T002 4 个、T003 4 个测试。
-- Finding、Evidence、Agent、RAG、模型调用、训练和 Serving 仍未实现。
+- T004 Finding 与 Evidence Schema 已完成并通过验证。
+- `python -m pytest -p no:cacheprovider` 实际执行结果为 `31 passed`：T001 13 个、T002 4 个、T003 4 个、T004 10 个测试。
+- Agent、RAG、模型调用、训练和 Serving 仍未实现。
 
 当前不要声称已经完成：
-- Finding/Evidence Schema；
 - LLM 调用；
 - RAG；
 - Agent；
@@ -44,7 +45,8 @@
 T001 Python project skeleton is initialized and verified.
 T002 standardized Conversation and Message schemas are implemented and tested.
 T003 QARule schema is implemented and tested.
-Finding, Evidence, Agent, RAG, training, and serving are not implemented yet.
+T004 Finding and Evidence schemas are implemented and tested.
+Agent, RAG, training, and serving are not implemented yet.
 ```
 
 ## Current constraints
@@ -76,6 +78,6 @@ Finding, Evidence, Agent, RAG, training, and serving are not implemented yet.
 
 ## Next task
 
-`T004 Finding and Evidence Schema`
+`T005 Mock fixtures and representative cases`
 
-等待项目负责人的下一步指令后再实现；本任务未提前进入 T004。
+等待项目负责人的下一步指令后再实现；本任务未提前进入 T005。
