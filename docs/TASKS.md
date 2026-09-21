@@ -94,7 +94,7 @@
 
 ## T005 Mock fixtures and representative cases
 
-**Status:** TODO  
+**Status:** DONE  
 **Depends on:** T002, T003, T004
 
 **Target:**
@@ -114,7 +114,7 @@
 
 ## T006 Conversation Evidence Verifier
 
-**Status:** TODO  
+**Status:** DONE  
 **Depends on:** T004, T005
 
 **Target files:**
@@ -133,7 +133,7 @@
 
 ## T007 Order Context Tool contract and Mock implementation
 
-**Status:** TODO  
+**Status:** DONE  
 **Depends on:** T004, T005
 
 **Target files:**

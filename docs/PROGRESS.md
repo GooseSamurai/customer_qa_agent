@@ -2,7 +2,7 @@
 
 ## Current milestone
 
-**M1：仓库与核心数据契约**
+**M2：Evidence 与外部能力**
 
 ## Completed
 
@@ -14,6 +14,9 @@
 - 完成 T002：定义标准化 Conversation 与 Message Schema，并覆盖正常和异常输入测试。
 - 完成 T003：定义 QARule 质检规则数据结构，并覆盖正常和异常输入测试。
 - 完成 T004：定义 Finding 与 Conversation/Order/Knowledge Evidence Schema，并覆盖四类 required_evidence 路由表达及异常输入。
+- 完成 T005：建立 Case A/B/C 和 Mock 规则、订单、知识输入数据。
+- 完成 T006：实现会话证据校验，覆盖消息不存在、角色错误和原话不存在。
+- 完成 T007：实现订单上下文 Mock 工具，覆盖正常查询、字段筛选和订单不存在。
 - 建立仓库级 Vibe Coding 文档体系：
   - `AGENTS.md`
   - `README.md`
@@ -29,8 +32,8 @@
 - T002 Conversation Schema 已完成并通过验证。
 - T003 QARule Schema 已完成并通过验证。
 - T004 Finding 与 Evidence Schema 已完成并通过验证。
-- `python -m pytest -p no:cacheprovider` 实际执行结果为 `31 passed`：T001 13 个、T002 4 个、T003 4 个、T004 10 个测试。
-- Agent、RAG、模型调用、训练和 Serving 仍未实现。
+- `python -m pytest -p no:cacheprovider` 实际执行结果为 `38 passed`：T001-T004 31 个测试加 T005-T007 组合测试 7 个。
+- RAG、模型调用、Agent 工作流、训练和 Serving 仍未实现。
 
 当前不要声称已经完成：
 - LLM 调用；
@@ -42,11 +45,11 @@
 ## Current repository state
 
 ```text
-T001 Python project skeleton is initialized and verified.
-T002 standardized Conversation and Message schemas are implemented and tested.
-T003 QARule schema is implemented and tested.
-T004 Finding and Evidence schemas are implemented and tested.
-Agent, RAG, training, and serving are not implemented yet.
+T001-T004 schemas are implemented and tested.
+T005 representative fixtures are available.
+T006 conversation evidence verification is implemented and tested.
+T007 mock order context tool is implemented and tested.
+RAG, Agent workflow, training, and serving are not implemented yet.
 ```
 
 ## Current constraints
@@ -72,12 +75,12 @@ Agent, RAG, training, and serving are not implemented yet.
 
 ## Development environment
 
-- Python: `>=3.10`。T002/T003 使用 `llamafactory` 环境 Python `3.11.15` 和 Python `3.12.7` 完成验证。
+- Python: `>=3.10`。T002-T007 使用 `llamafactory` 环境 Python `3.11.15` 和 Python `3.12.7` 完成验证。
 - 创建隔离环境后安装开发依赖：`python -m pip install -e ".[dev]"`。
 - 运行测试：`python -m pytest`。
 
 ## Next task
 
-`T005 Mock fixtures and representative cases`
+`T008 Business Knowledge document schema and ingestion`
 
-等待项目负责人的下一步指令后再实现；本任务未提前进入 T005。
+等待项目负责人的下一步指令后再实现；本任务未提前进入 T008。
