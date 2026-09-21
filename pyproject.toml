@@ -22,9 +22,11 @@ readme = "README.md"
 # 只允许 Python 3.10 及以上版本安装本项目。
 requires-python = ">=3.10"
 
-# 当前 T001 只有工程骨架，没有任何业务逻辑，所以没有运行时依赖。
+# T002 开始定义 Pydantic Schema，因此加入运行时依赖。
 # 后续只有在某个 Task 真正需要 Pydantic、FastAPI 等库时，才应该加入这里。
-dependencies = []
+dependencies = [
+    "pydantic>=2.8,<3",
+]
 
 # ---------------------------------------------------------------------------
 # 3. 开发依赖

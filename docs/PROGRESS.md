@@ -11,6 +11,7 @@
 - 明确企业侧与项目组技术边界。
 - 明确核心主链路：SFT → Findings → Claim-level Agent → Tool/RAG → Evidence → Feedback → vLLM。
 - 完成 T001：建立 Python package 骨架、最小项目配置、pytest 配置、导入测试和开发环境忽略规则。
+- 完成 T002：定义标准化 Conversation 与 Message Schema，并覆盖正常和异常输入测试。
 - 建立仓库级 Vibe Coding 文档体系：
   - `AGENTS.md`
   - `README.md`
@@ -23,11 +24,12 @@
 ## Verified implementation
 
 - T001 工程骨架已完成并通过验证：12 个业务 package 可正常导入。
-- `python -m pytest` 实际执行结果为 `13 passed`。
-- 暂无业务代码完成；Conversation、Rule、Finding、Evidence、Agent、RAG、模型调用、训练和 Serving 均未实现。
+- T002 Conversation Schema 已完成并通过验证。
+- `python -m pytest -p no:cacheprovider` 实际执行结果为 `17 passed`：T002 4 个测试加 T001 原有 13 个测试。
+- QARule、Finding、Evidence、Agent、RAG、模型调用、训练和 Serving 仍未实现。
 
 当前不要声称已经完成：
-- Conversation/Rule/Finding Schema；
+- QARule/Finding/Evidence Schema；
 - LLM 调用；
 - RAG；
 - Agent；
@@ -38,7 +40,8 @@
 
 ```text
 T001 Python project skeleton is initialized and verified.
-Business source directories are importable packages, but contain no business logic yet.
+T002 standardized Conversation and Message schemas are implemented and tested.
+Rule, Finding, Evidence, Agent, RAG, training, and serving are not implemented yet.
 ```
 
 ## Current constraints
@@ -64,12 +67,12 @@ Business source directories are importable packages, but contain no business log
 
 ## Development environment
 
-- Python: `>=3.10`，当前验证环境为 Python `3.12.7`。
+- Python: `>=3.10`。`llamafactory` 环境使用 Python `3.11.15`、pytest `9.1.1` 完成 T002 验证；CI 同时覆盖 Python 3.10 和 3.12。
 - 创建隔离环境后安装开发依赖：`python -m pip install -e ".[dev]"`。
 - 运行测试：`python -m pytest`。
 
 ## Next task
 
-`T002 Conversation Schema`
+`T003 QA Rule Schema`
 
-等待项目负责人的下一步指令后再实现；本任务未提前进入 T002。
+等待项目负责人的下一步指令后再实现；本任务未提前进入 T003。

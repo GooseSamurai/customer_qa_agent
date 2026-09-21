@@ -35,7 +35,7 @@
 
 ## T002 Conversation Schema
 
-**Status:** TODO  
+**Status:** DONE  
 **Depends on:** T001
 
 **Target files:**
