@@ -2,7 +2,7 @@
 
 ## Current milestone
 
-**M3：QA Model baseline**
+**M4：Agent 工作流**
 
 ## Completed
 
@@ -21,6 +21,8 @@
 - 完成 T009：接入 BAAI/bge-small-zh-v1.5 中文 Embedding、Chroma 向量库、Metadata Filter 和过期文档排除。
 - 完成 T010：接入 BAAI/bge-reranker-base CrossEncoder 对候选知识片段二次重排。
 - 完成 T011：将 RAG 封装为业务知识工具，并输出可追溯的 KnowledgeEvidence。
+- 完成 T012-T013：建立质检 Prompt、结构化 Finding 输出、供应商无关模型封装，并接入本地 Qwen3-VL-2B-Instruct 真实推理。
+- 完成 T014-T015：实现单 Finding 路由和基于已有证据的受约束复判，真实 Qwen 已完成 Case B 复判验证。
 - 建立仓库级 Vibe Coding 文档体系：
   - `AGENTS.md`
   - `README.md`
@@ -36,13 +38,13 @@
 - T002 Conversation Schema 已完成并通过验证。
 - T003 QARule Schema 已完成并通过验证。
 - T004 Finding 与 Evidence Schema 已完成并通过验证。
-- T001-T011 已验证，完整测试 `44 passed`。真实端到端查询“客服没有确认订单就承诺今晚退款到账”返回 `refund_processing_rules-chunk-2` 作为相关知识证据。
-- 模型调用、Agent 工作流、训练和 Serving 仍未实现；RAG 已使用真实模型和向量库，但尚未接入持久化索引和生产知识库。
+- T001-T015 已验证，完整测试 `57 passed`。真实 RAG、本地 Qwen 推理、Finding Router 和 Grounded Judge 均有测试或实际运行验证。
+- RAG 和本地 Qwen 推理已接入；Agent 工作流、训练、vLLM/量化部署和持久化知识索引仍未实现。
 
 当前不要声称已经完成：
-- LLM 调用；
+- vLLM/量化部署；
 - 生产级 RAG 平台能力（持久化索引、权限、批量评测等）；
-- Agent；
+- 完整 Agent Workflow；
 - LoRA-SFT；
 - vLLM 部署。
 
@@ -52,8 +54,8 @@
 T001-T004 schemas are implemented and tested.
 T005-T007 evidence fixtures, verification, and order-context tools are implemented and tested.
 T008-T011 implement a real local RAG pipeline with LangChain Markdown splitting, BGE embeddings, Chroma, and BGE reranking.
-The knowledge corpus currently uses six synthetic ecommerce business documents with source metadata.
-Agent workflow, training, and serving are not implemented yet.
+T012-T015 implement the QA model contract, local Qwen inference client, Finding router, and grounded re-evaluation.
+Agent workflow, training, vLLM/quantized serving, and persistent knowledge indexing are not implemented yet.
 ```
 
 ## Current constraints
@@ -79,12 +81,12 @@ Agent workflow, training, and serving are not implemented yet.
 
 ## Development environment
 
-- Python: `>=3.10`。T002-T011 使用 `llamafactory` 环境 Python `3.11.15` 和 Python `3.12.7` 完成验证。
+- Python: `>=3.10`。T002-T015 使用 `llamafactory` 环境 Python `3.11.15` 和 Python `3.12.7` 完成验证；本地 Qwen 权重位于 `G:\LLM\modelscope\hub\models\qwen\Qwen3-VL-2B-Instruct`。
 - 创建隔离环境后安装开发依赖：`python -m pip install -e ".[dev]"`。
 - 运行测试：`python -m pytest`。
 
 ## Next task
 
-`T012 Prompt and structured output baseline`
+`T016 Agent State and workflow`
 
-等待项目负责人的下一步指令后再实现；本任务未提前进入 T012。
+等待项目负责人的下一步指令后再实现；本任务未提前进入 T016。

@@ -229,7 +229,7 @@
 
 ## T012 Prompt and structured output baseline
 
-**Status:** TODO  
+**Status:** DONE  
 **Depends on:** T003, T004, T005
 
 **Target files:**
@@ -249,7 +249,7 @@
 
 ## T013 QA Model wrapper
 
-**Status:** TODO  
+**Status:** DONE  
 **Depends on:** T012
 
 **Target files:**
@@ -271,7 +271,7 @@
 
 ## T014 Claim Router
 
-**Status:** TODO  
+**Status:** DONE  
 **Depends on:** T004, T007, T011
 
 **Target files:**
@@ -290,7 +290,7 @@
 
 ## T015 Grounded Judge
 
-**Status:** TODO  
+**Status:** DONE  
 **Depends on:** T013, T014
 
 **Target files:**
