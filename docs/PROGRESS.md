@@ -24,6 +24,9 @@
 - 完成 T012-T013：建立质检 Prompt、结构化 Finding 输出、供应商无关模型封装，并接入本地 Qwen3-VL-2B-Instruct 真实推理。
 - 完成 T014-T015：实现单 Finding 路由和基于已有证据的受约束复判，真实 Qwen 已完成 Case B 复判验证。
 - 完成 T016：使用 LangGraph 串起会话证据校验、Finding 路由、订单/知识取证、Grounded Judge 和人工复核分支。
+- 完成 T017：实现 SQLite Repository，保存 case、finding、evidence、agent run 和 review。
+- 完成 T018：实现 FastAPI 质检接口，应用 service 负责调用工作流并持久化。
+- 完成 T019：支持 confirmed、false_positive、correction，并导出 SFT 候选 JSONL。
 - 建立仓库级 Vibe Coding 文档体系：
   - `AGENTS.md`
   - `README.md`
@@ -39,7 +42,7 @@
 - T002 Conversation Schema 已完成并通过验证。
 - T003 QARule Schema 已完成并通过验证。
 - T004 Finding 与 Evidence Schema 已完成并通过验证。
-- T001-T016 已验证，完整测试 `63 passed`。真实 RAG、本地 Qwen 推理、Finding Router、Grounded Judge 和 LangGraph 工作流均有测试或实际运行验证。
+- T001-T019 已验证，完整测试 `69 passed`。RAG、本地 Qwen、Agent 工作流、SQLite Repository、FastAPI 接口和 SFT 候选导出均已验证。
 - RAG 和本地 Qwen 推理已接入；Agent 工作流、训练、vLLM/量化部署和持久化知识索引仍未实现。
 
 当前不要声称已经完成：
@@ -57,7 +60,8 @@ T005-T007 evidence fixtures, verification, and order-context tools are implement
 T008-T011 implement a real local RAG pipeline with LangChain Markdown splitting, BGE embeddings, Chroma, and BGE reranking.
 T012-T015 implement the QA model contract, local Qwen inference client, Finding router, and grounded re-evaluation.
 T016 implements the LangGraph workflow for direct, order, knowledge, combined, and human-review paths.
-Training, persistence/API, vLLM/quantized serving, and persistent knowledge indexing are not implemented yet.
+T017-T019 implement SQLite persistence, FastAPI analysis/review endpoints, and JSONL SFT candidate export.
+Training, vLLM/quantized serving, and persistent knowledge indexing are not implemented yet.
 ```
 
 ## Current constraints
@@ -89,6 +93,6 @@ Training, persistence/API, vLLM/quantized serving, and persistent knowledge inde
 
 ## Next task
 
-`T017 Minimal persistence layer`
+`T020 SFT dataset builder`
 
-等待项目负责人的下一步指令后再实现；本任务未提前进入 T017。
+等待项目负责人的下一步指令后再实现；本任务未提前进入 T020。

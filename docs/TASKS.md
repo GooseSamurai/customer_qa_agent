@@ -331,7 +331,7 @@
 
 ## T017 Minimal persistence layer
 
-**Status:** TODO  
+**Status:** DONE  
 **Depends on:** T004, T016
 
 **Target:**
@@ -349,7 +349,7 @@
 
 ## T018 Quality analysis API
 
-**Status:** TODO  
+**Status:** DONE  
 **Depends on:** T016, T017
 
 **Target:**
@@ -368,7 +368,7 @@
 
 ## T019 Review and feedback export
 
-**Status:** TODO  
+**Status:** DONE  
 **Depends on:** T017
 
 **Target files:**
