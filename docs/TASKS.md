@@ -309,7 +309,7 @@
 
 ## T016 Agent State and workflow
 
-**Status:** TODO  
+**Status:** DONE  
 **Depends on:** T006, T007, T011, T014, T015
 
 **Target files:**

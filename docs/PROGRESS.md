@@ -2,7 +2,7 @@
 
 ## Current milestone
 
-**M4：Agent 工作流**
+**M5：API、持久化与人工反馈**
 
 ## Completed
 
@@ -23,6 +23,7 @@
 - 完成 T011：将 RAG 封装为业务知识工具，并输出可追溯的 KnowledgeEvidence。
 - 完成 T012-T013：建立质检 Prompt、结构化 Finding 输出、供应商无关模型封装，并接入本地 Qwen3-VL-2B-Instruct 真实推理。
 - 完成 T014-T015：实现单 Finding 路由和基于已有证据的受约束复判，真实 Qwen 已完成 Case B 复判验证。
+- 完成 T016：使用 LangGraph 串起会话证据校验、Finding 路由、订单/知识取证、Grounded Judge 和人工复核分支。
 - 建立仓库级 Vibe Coding 文档体系：
   - `AGENTS.md`
   - `README.md`
@@ -38,7 +39,7 @@
 - T002 Conversation Schema 已完成并通过验证。
 - T003 QARule Schema 已完成并通过验证。
 - T004 Finding 与 Evidence Schema 已完成并通过验证。
-- T001-T015 已验证，完整测试 `57 passed`。真实 RAG、本地 Qwen 推理、Finding Router 和 Grounded Judge 均有测试或实际运行验证。
+- T001-T016 已验证，完整测试 `63 passed`。真实 RAG、本地 Qwen 推理、Finding Router、Grounded Judge 和 LangGraph 工作流均有测试或实际运行验证。
 - RAG 和本地 Qwen 推理已接入；Agent 工作流、训练、vLLM/量化部署和持久化知识索引仍未实现。
 
 当前不要声称已经完成：
@@ -55,7 +56,8 @@ T001-T004 schemas are implemented and tested.
 T005-T007 evidence fixtures, verification, and order-context tools are implemented and tested.
 T008-T011 implement a real local RAG pipeline with LangChain Markdown splitting, BGE embeddings, Chroma, and BGE reranking.
 T012-T015 implement the QA model contract, local Qwen inference client, Finding router, and grounded re-evaluation.
-Agent workflow, training, vLLM/quantized serving, and persistent knowledge indexing are not implemented yet.
+T016 implements the LangGraph workflow for direct, order, knowledge, combined, and human-review paths.
+Training, persistence/API, vLLM/quantized serving, and persistent knowledge indexing are not implemented yet.
 ```
 
 ## Current constraints
@@ -87,6 +89,6 @@ Agent workflow, training, vLLM/quantized serving, and persistent knowledge index
 
 ## Next task
 
-`T016 Agent State and workflow`
+`T017 Minimal persistence layer`
 
-等待项目负责人的下一步指令后再实现；本任务未提前进入 T016。
+等待项目负责人的下一步指令后再实现；本任务未提前进入 T017。
