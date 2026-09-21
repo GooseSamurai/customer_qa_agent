@@ -2,7 +2,7 @@
 
 ## Current milestone
 
-**M2：Evidence 与外部能力**
+**M3：QA Model baseline**
 
 ## Completed
 
@@ -17,6 +17,10 @@
 - 完成 T005：建立 Case A/B/C 和 Mock 规则、订单、知识输入数据。
 - 完成 T006：实现会话证据校验，覆盖消息不存在、角色错误和原话不存在。
 - 完成 T007：实现订单上下文 Mock 工具，覆盖正常查询、字段筛选和订单不存在。
+- 完成 T008：建立六份电商平台业务知识样例和 Metadata，并使用 LangChain MarkdownHeaderTextSplitter 完成结构化切分。
+- 完成 T009：接入 BAAI/bge-small-zh-v1.5 中文 Embedding、Chroma 向量库、Metadata Filter 和过期文档排除。
+- 完成 T010：接入 BAAI/bge-reranker-base CrossEncoder 对候选知识片段二次重排。
+- 完成 T011：将 RAG 封装为业务知识工具，并输出可追溯的 KnowledgeEvidence。
 - 建立仓库级 Vibe Coding 文档体系：
   - `AGENTS.md`
   - `README.md`
@@ -32,12 +36,12 @@
 - T002 Conversation Schema 已完成并通过验证。
 - T003 QARule Schema 已完成并通过验证。
 - T004 Finding 与 Evidence Schema 已完成并通过验证。
-- `python -m pytest -p no:cacheprovider` 实际执行结果为 `38 passed`：T001-T004 31 个测试加 T005-T007 组合测试 7 个。
-- RAG、模型调用、Agent 工作流、训练和 Serving 仍未实现。
+- T001-T011 已验证，完整测试 `44 passed`。真实端到端查询“客服没有确认订单就承诺今晚退款到账”返回 `refund_processing_rules-chunk-2` 作为相关知识证据。
+- 模型调用、Agent 工作流、训练和 Serving 仍未实现；RAG 已使用真实模型和向量库，但尚未接入持久化索引和生产知识库。
 
 当前不要声称已经完成：
 - LLM 调用；
-- RAG；
+- 生产级 RAG 平台能力（持久化索引、权限、批量评测等）；
 - Agent；
 - LoRA-SFT；
 - vLLM 部署。
@@ -46,10 +50,10 @@
 
 ```text
 T001-T004 schemas are implemented and tested.
-T005 representative fixtures are available.
-T006 conversation evidence verification is implemented and tested.
-T007 mock order context tool is implemented and tested.
-RAG, Agent workflow, training, and serving are not implemented yet.
+T005-T007 evidence fixtures, verification, and order-context tools are implemented and tested.
+T008-T011 implement a real local RAG pipeline with LangChain Markdown splitting, BGE embeddings, Chroma, and BGE reranking.
+The knowledge corpus currently uses six synthetic ecommerce business documents with source metadata.
+Agent workflow, training, and serving are not implemented yet.
 ```
 
 ## Current constraints
@@ -75,12 +79,12 @@ RAG, Agent workflow, training, and serving are not implemented yet.
 
 ## Development environment
 
-- Python: `>=3.10`。T002-T007 使用 `llamafactory` 环境 Python `3.11.15` 和 Python `3.12.7` 完成验证。
+- Python: `>=3.10`。T002-T011 使用 `llamafactory` 环境 Python `3.11.15` 和 Python `3.12.7` 完成验证。
 - 创建隔离环境后安装开发依赖：`python -m pip install -e ".[dev]"`。
 - 运行测试：`python -m pytest`。
 
 ## Next task
 
-`T008 Business Knowledge document schema and ingestion`
+`T012 Prompt and structured output baseline`
 
-等待项目负责人的下一步指令后再实现；本任务未提前进入 T008。
+等待项目负责人的下一步指令后再实现；本任务未提前进入 T012。

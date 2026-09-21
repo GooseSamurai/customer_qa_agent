@@ -1,0 +1,74 @@
+[
+  {
+    "source_id": "product_consultation_sop",
+    "title": "商品咨询答复规范",
+    "file": "product_consultation/product_consultation_sop.md",
+    "source_type": "synthetic_sample",
+    "source_url": "internal://knowledge/product_consultation_sop",
+    "channel": "web",
+    "category": "product_consultation",
+    "policy_type": "service_sop",
+    "effective_date": "2026-09-21",
+    "expire_date": null
+  },
+  {
+    "source_id": "logistics_service_rules",
+    "title": "物流异常处理规范",
+    "file": "logistics/logistics_service_rules.md",
+    "source_type": "synthetic_sample",
+    "source_url": "internal://knowledge/logistics_service_rules",
+    "channel": "web",
+    "category": "logistics",
+    "policy_type": "logistics_service",
+    "effective_date": "2026-09-21",
+    "expire_date": null
+  },
+  {
+    "source_id": "return_exchange_policy",
+    "title": "退换货资格与处理规范",
+    "file": "after_sale/return_exchange_policy.md",
+    "source_type": "synthetic_sample",
+    "source_url": "internal://knowledge/return_exchange_policy",
+    "channel": "web",
+    "category": "after_sale",
+    "policy_type": "return_policy",
+    "effective_date": "2026-09-21",
+    "expire_date": null
+  },
+  {
+    "source_id": "refund_processing_rules",
+    "title": "退款处理规范",
+    "file": "refund/refund_processing_rules.md",
+    "source_type": "synthetic_sample",
+    "source_url": "internal://knowledge/refund_processing_rules",
+    "channel": "web",
+    "category": "refund",
+    "policy_type": "refund_policy",
+    "effective_date": "2026-09-21",
+    "expire_date": null
+  },
+  {
+    "source_id": "promotion_price_rules",
+    "title": "优惠与价格保护规范",
+    "file": "promotion_price/promotion_price_rules.md",
+    "source_type": "synthetic_sample",
+    "source_url": "internal://knowledge/promotion_price_rules",
+    "channel": "web",
+    "category": "promotion_price",
+    "policy_type": "promotion_policy",
+    "effective_date": "2026-09-21",
+    "expire_date": null
+  },
+  {
+    "source_id": "complaint_escalation_sop",
+    "title": "投诉升级处理规范",
+    "file": "complaint/complaint_escalation_sop.md",
+    "source_type": "synthetic_sample",
+    "source_url": "internal://knowledge/complaint_escalation_sop",
+    "channel": "web",
+    "category": "complaint",
+    "policy_type": "complaint_sop",
+    "effective_date": "2026-09-21",
+    "expire_date": null
+  }
+]

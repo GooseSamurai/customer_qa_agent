@@ -152,7 +152,7 @@
 
 ## T008 Business Knowledge document schema and ingestion
 
-**Status:** TODO  
+**Status:** DONE  
 **Depends on:** T001, T005
 
 **Target files:**
@@ -171,7 +171,7 @@
 
 ## T009 Basic Retriever
 
-**Status:** TODO  
+**Status:** DONE  
 **Depends on:** T008
 
 **Target files:**
@@ -190,7 +190,7 @@
 
 ## T010 Reranker
 
-**Status:** TODO  
+**Status:** DONE  
 **Depends on:** T009
 
 **Target files:**
@@ -208,7 +208,7 @@
 
 ## T011 Business Knowledge Tool
 
-**Status:** TODO  
+**Status:** DONE  
 **Depends on:** T009, T010
 
 **Target files:**

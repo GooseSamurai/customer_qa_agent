@@ -26,6 +26,10 @@ requires-python = ">=3.10"
 # 后续只有在某个 Task 真正需要 Pydantic、FastAPI 等库时，才应该加入这里。
 dependencies = [
     "pydantic>=2.8,<3",
+    "langchain-text-splitters>=1.1,<2",
+    "langchain-huggingface>=1.2,<2",
+    "langchain-chroma>=1.1,<2",
+    "sentence-transformers>=6.0,<7",
 ]
 
 # ---------------------------------------------------------------------------
