@@ -1,0 +1,29 @@
+# Python 运行代码后生成的字节码缓存，不需要提交到版本库。
+__pycache__/
+*.py[cod]
+*$py.class
+
+# 每个开发者自己的虚拟环境，不应该共享给其他人。
+.venv/
+venv/
+env/
+
+# pytest、覆盖率工具和其他本地检查工具生成的缓存。
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# Python 打包时生成的构建产物，可以由源码重新生成。
+build/
+dist/
+*.egg-info/
+
+# 本地密钥、环境变量和 IDE 个人配置，不应进入版本库。
+.env
+.idea/
+.vscode/
+
+# 项目内下载的便携开发工具，不提交到 Git。
+.tools/

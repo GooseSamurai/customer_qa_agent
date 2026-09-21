@@ -1,0 +1,84 @@
+# ---------------------------------------------------------------------------
+# 1. 构建系统配置
+# ---------------------------------------------------------------------------
+# 当你执行 pip 安装或构建这个项目时，pip 会读取这里。
+# requires 表示构建项目需要先准备 setuptools。
+# build-backend 表示真正执行构建逻辑的工具是 setuptools.build_meta。
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+# ---------------------------------------------------------------------------
+# 2. 项目元数据
+# ---------------------------------------------------------------------------
+# 这一整段描述“这个项目是谁、支持哪个 Python 版本、运行时需要什么包”。
+# pip、setuptools 和部分 IDE 会读取这里。
+[project]
+name = "customer-qa-agent"
+version = "0.1.0"
+description = "LLM and Agent capabilities for enterprise e-commerce customer-service QA."
+readme = "README.md"
+
+# 只允许 Python 3.10 及以上版本安装本项目。
+requires-python = ">=3.10"
+
+# 当前 T001 只有工程骨架，没有任何业务逻辑，所以没有运行时依赖。
+# 后续只有在某个 Task 真正需要 Pydantic、FastAPI 等库时，才应该加入这里。
+dependencies = []
+
+# ---------------------------------------------------------------------------
+# 3. 开发依赖
+# ---------------------------------------------------------------------------
+# “optional-dependencies”表示这些依赖不是程序运行时必需，
+# 而是开发、测试或构建阶段才需要。
+# 执行 python -m pip install -e ".[dev]" 时，会安装下面的 pytest。
+[project.optional-dependencies]
+dev = [
+    # pytest 是自动发现并执行测试函数的工具。
+    # 版本范围表示 pytest 必须大于等于 7.4，但不能到 9.x。
+    "pytest>=7.4,<9",
+]
+
+# ---------------------------------------------------------------------------
+# 4. setuptools 如何寻找 Python package
+# ---------------------------------------------------------------------------
+# where = ["."] 表示从项目根目录开始寻找 package。
+# include 中的每一项都是允许被打包的顶层 package。
+# 没有列在这里的目录不会被当作本项目 package 安装。
+[tool.setuptools.packages.find]
+where = ["."]
+include = [
+    "schemas*",
+    "model*",
+    "agent*",
+    "tools*",
+    "rag*",
+    "evidence*",
+    "training*",
+    "feedback*",
+    "serving*",
+    "api*",
+    "db*",
+    "evaluation*",
+]
+
+# ---------------------------------------------------------------------------
+# 5. pytest 配置
+# ---------------------------------------------------------------------------
+# 当你在项目根目录执行 python -m pytest 时，
+# pytest 会读取 pyproject.toml 中的 [tool.pytest.ini_options]。
+# 这段配置不是业务代码，也不会在客服质检请求执行时运行。
+[tool.pytest.ini_options]
+
+# 本项目使用的 pytest 最低版本。
+minversion = "7.0"
+
+# 每次测试结束后输出额外摘要；-r 表示 report，a 表示显示所有非通过项。
+addopts = "-ra"
+
+# 只从 tests/ 目录搜索测试文件。
+testpaths = ["tests"]
+
+# 把项目根目录加入 Python import 搜索路径。
+# 这样测试文件可以直接 import schemas、agent 等顶层 package。
+pythonpath = ["."]

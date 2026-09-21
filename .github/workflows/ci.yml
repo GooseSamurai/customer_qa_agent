@@ -1,0 +1,63 @@
+# GitHub Actions 工作流名称。
+# GitHub 仓库页面中的 Actions 标签会显示这个名字。
+name: CI
+
+# 什么事件会触发这个工作流。
+on:
+  # 当代码被 push 到 main 分支时执行。
+  push:
+    branches:
+      - main
+
+  # 当有人向 main 分支提交 Pull Request 时执行。
+  pull_request:
+    branches:
+      - main
+
+  # 允许在 GitHub 网页中手动点击 Run workflow 执行。
+  workflow_dispatch:
+
+# GitHub Actions 默认权限越小越安全。
+# CI 只需要读取仓库代码，不需要修改仓库。
+permissions:
+  contents: read
+
+# 同一个分支连续触发 CI 时，取消旧的运行，只保留最新一次。
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # 一个 job 可以理解为一组在干净机器上执行的任务。
+  test:
+    # 使用 GitHub 提供的 Ubuntu runner。
+    runs-on: ubuntu-latest
+
+    # 分别用最低支持版本和当前主要开发版本运行测试。
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version:
+          - "3.10"
+          - "3.12"
+
+    steps:
+      # 第一步：把当前 commit 的代码下载到 CI 机器。
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 第二步：安装指定版本的 Python。
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      # 第三步：以 editable 模式安装项目及其 dev 依赖。
+      # dev 依赖来自 pyproject.toml 中的 [project.optional-dependencies]。
+      - name: Install project and test dependencies
+        run: python -m pip install -e ".[dev]"
+
+      # 第四步：运行 pytest。
+      # 如果任何一个测试失败，这一步返回非 0，整个 CI job 失败。
+      - name: Run tests
+        run: python -m pytest

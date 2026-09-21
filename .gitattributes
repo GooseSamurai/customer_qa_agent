@@ -1,0 +1,13 @@
+# 让 Git 尽量自动识别文本文件，并在不同操作系统间统一换行。
+* text=auto
+
+# Python 项目及 CI 配置文件统一使用 LF 换行。
+*.py text eol=lf
+*.toml text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.md text eol=lf
+
+# Windows 脚本保留 CRLF，避免旧版 PowerShell 执行问题。
+*.ps1 text eol=crlf
+*.bat text eol=crlf
