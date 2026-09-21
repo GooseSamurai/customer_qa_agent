@@ -108,7 +108,45 @@ customer_qa_agent/
 
 ## 当前状态
 
-当前处于仓库设计与基础数据契约阶段。真实完成情况以 `docs/PROGRESS.md` 为准，后续任务以 `docs/TASKS.md` 为准。
+当前仓库已经完成 T001-T026：
+
+- 标准化数据契约；
+- 真实中文 RAG：LangChain 切分、BGE Embedding、Chroma、BGE Reranker；
+- 本地 Qwen 推理和 Grounded Judge；
+- LangGraph Finding 工作流；
+- SQLite、FastAPI、人工复核和 SFT 反馈导出；
+- SFT 数据构建和 LoRA-SFT 训练入口；
+- vLLM HTTP 客户端和服务适配；
+- Model、RAG、Agent、Evidence、Serving 分层评测。
+
+当前真实评测结果见 `evaluation/REPORT.md`。正式规模 LoRA-SFT、真实 vLLM 部署和量化仍属于后续工作。
+
+## 运行与复现
+
+安装开发依赖：
+
+```powershell
+python -m pip install -e ".[dev]"
+```
+
+运行全部测试：
+
+```powershell
+python -m pytest
+```
+
+查看文档切分：
+
+```powershell
+python -m rag.ingest data/knowledge/documents.json
+```
+
+运行 RAG 与 Serving 评测：
+
+```powershell
+python -m evaluation.rag_eval
+python -m evaluation.serving_benchmark
+```
 
 ## 文档导航
 

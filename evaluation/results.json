@@ -1,0 +1,40 @@
+{
+  "model_eval": {
+    "base": {
+      "finding_classification_f1": 0.5,
+      "external_verification_trigger_f1": 0.0,
+      "evidence_localization_accuracy": 0.0,
+      "schema_success_rate": 1.0,
+      "num_cases": 3
+    },
+    "sft_1step": {
+      "finding_classification_f1": 0.5,
+      "external_verification_trigger_f1": 0.0,
+      "evidence_localization_accuracy": 0.0,
+      "schema_success_rate": 0.3333333333333333,
+      "num_cases": 3
+    }
+  },
+  "rag_eval": {
+    "recall_at_k": 1.0,
+    "rerank_top1": 1.0,
+    "rerank_top3": 1.0,
+    "num_cases": 5,
+    "expired_policy_leak_rate": 0.0
+  },
+  "agent_eval": {
+    "routing_accuracy": 1.0,
+    "tool_argument_accuracy": 1.0,
+    "evidence_validation_accuracy": 1.0,
+    "unsupported_claim_rate": 0.0,
+    "representative_case_pass_rate": 1.0,
+    "num_routing_cases": 4
+  },
+  "serving_benchmark": {
+    "requests": 2,
+    "elapsed_seconds": 3.1095118999946862,
+    "latency_seconds_per_request": 1.5547559499973431,
+    "serial_requests_per_second": 0.6431877620418233,
+    "gpu_memory_mb": 4121.96044921875
+  }
+}

@@ -449,7 +449,7 @@
 
 ## T023 Model evaluation
 
-**Status:** TODO  
+**Status:** DONE  
 **Depends on:** T013, T021
 
 **Acceptance:**
@@ -460,7 +460,7 @@
 
 ## T024 RAG evaluation
 
-**Status:** TODO  
+**Status:** DONE  
 **Depends on:** T009, T010
 
 **Acceptance:**
@@ -472,7 +472,7 @@
 
 ## T025 Agent and evidence evaluation
 
-**Status:** TODO  
+**Status:** DONE  
 **Depends on:** T016
 
 **Acceptance:**
@@ -486,7 +486,7 @@
 
 ## T026 Serving benchmark and final acceptance
 
-**Status:** TODO  
+**Status:** DONE  
 **Depends on:** T022, T023, T024, T025
 
 **Acceptance:**

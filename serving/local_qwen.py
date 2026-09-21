@@ -3,6 +3,7 @@
 import os
 
 import torch
+from peft import PeftModel
 from transformers import AutoProcessor, Qwen3VLForConditionalGeneration
 
 DEFAULT_MODEL_PATH = r"G:\LLM\modelscope\hub\models\qwen\Qwen3-VL-2B-Instruct"
@@ -15,12 +16,14 @@ class LocalQwenClient:
     def __init__(
         self,
         model_path: str | None = None,
+        adapter_path: str | None = None,
         max_new_tokens: int = 1024,
     ) -> None:
         self.model_path = model_path or os.getenv(
             "LOCAL_QWEN_MODEL_PATH",
             DEFAULT_MODEL_PATH,
         )
+        self.adapter_path = adapter_path
         self.max_new_tokens = max_new_tokens
         self.processor = None
         self.model = None
@@ -40,6 +43,13 @@ class LocalQwenClient:
             device_map="auto",
             local_files_only=True,
         )
+
+        if self.adapter_path:
+            self.model = PeftModel.from_pretrained(
+                self.model,
+                self.adapter_path,
+                local_files_only=True,
+            )
 
     def generate(self, prompt: str) -> str:
         """执行一次本地文本生成。"""
@@ -67,7 +77,6 @@ class LocalQwenClient:
                 do_sample=False,
             )
 
-        # 输入部分不是模型生成内容，需要从输出中裁掉。
         generated = generated[:, inputs["input_ids"].shape[1]:]
         output = self.processor.batch_decode(
             generated,
