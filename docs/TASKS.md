@@ -55,7 +55,7 @@
 
 ## T003 QA Rule Schema
 
-**Status:** TODO  
+**Status:** DONE  
 **Depends on:** T001
 
 **Target files:**
