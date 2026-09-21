@@ -44,11 +44,11 @@ jobs:
     steps:
       # 第一步：把当前 commit 的代码下载到 CI 机器。
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       # 第二步：安装指定版本的 Python。
       - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: ${{ matrix.python-version }}
 

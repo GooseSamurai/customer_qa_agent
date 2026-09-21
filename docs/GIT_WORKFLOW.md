@@ -162,3 +162,77 @@ git revert <commit-id>
 - 企业敏感数据。
 
 大型数据或模型后续应使用对象存储、DVC 或模型仓库，不直接进入 Git。
+
+## 11. 本项目实际配置
+
+- GitHub 账号：`GooseSamurai`
+- 远端仓库：`https://github.com/GooseSamurai/customer_qa_agent`
+- 默认分支：`main`
+- 远端名称：`origin`
+- CI 平台：GitHub Actions
+- CI 文件：`.github/workflows/ci.yml`
+- CD：暂未配置
+
+查看远端配置：
+
+```powershell
+git remote -v
+```
+
+查看本地分支与远端关系：
+
+```powershell
+git branch -vv
+```
+
+查看 CI：
+
+```powershell
+gh run list
+gh run view <run-id>
+```
+
+## 12. Pull Request 实际操作
+
+开发任务完成后：
+
+```powershell
+git status
+git add <本次修改文件>
+git diff --staged
+git commit -m "feat: add conversation schema"
+git push -u origin feature/t002-conversation-schema
+gh pr create --base main --head feature/t002-conversation-schema
+```
+
+查看 PR 检查：
+
+```powershell
+gh pr checks --watch
+```
+
+CI 通过并确认无误后合并：
+
+```powershell
+gh pr merge --squash --delete-branch
+```
+
+回到 main 并同步：
+
+```powershell
+git switch main
+git pull --ff-only origin main
+```
+
+## 13. main 分支保护规则
+
+当前 `main` 已配置：
+
+- 必须通过 Pull Request；
+- 必须通过 `test (3.10)`；
+- 必须通过 `test (3.12)`；
+- 禁止强制推送；
+- 禁止删除分支；
+- 管理员同样受规则约束。
+
+因此以后不要把功能修改直接 push 到 `main`。
